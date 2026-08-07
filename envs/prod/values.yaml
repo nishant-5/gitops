@@ -1,0 +1,7 @@
+replicaCount: 1
+
+image:
+  repository: nishantch05/user-service
+  tag: latest
+
+environment: prod
