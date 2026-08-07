@@ -2,9 +2,9 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "user-service.fullname" . }}
+  name: {{ include "taskpad.fullname" . }}
   labels:
-    {{- include "user-service.labels" . | nindent 4 }}
+    {{- include "taskpad.labels" . | nindent 4 }}
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -35,7 +35,7 @@ spec:
             {{- end }}
             backend:
               service:
-                name: {{ include "user-service.fullname" $ }}
+                name: {{ include "taskpad.fullname" $ }}
                 port:
                   number: {{ $.Values.service.port }}
           {{- end }}
