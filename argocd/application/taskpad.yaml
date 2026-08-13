@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+
+metadata:
+  name: taskpad
+
+  namespace: argocd
+
+spec:
+
+  project: default
+
+  source:
+    repoURL: https://github.com/nishant-5/gitops.git
+    targetRevision: main
+    path: charts/taskpad
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
