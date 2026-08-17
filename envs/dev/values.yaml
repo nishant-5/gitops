@@ -1,7 +1,37 @@
-replicaCount: 1
+frontend:
+  replicaCount: 1
 
-image:
-  repository: nishantch05/user-service
-  tag: latest
+  image:
+    repository: nishantch05/taskpad-frontend
+    tag: v4
 
-environment: dev
+  service:
+    port: 80
+  
+  env:
+    apiUrl: "/api"
+
+backend:
+  replicaCount: 1
+
+  image:
+    repository: nishantch05/taskpad-backend
+    tag: v3
+    pullPolicy: IfNotPresent
+
+  service:
+    type: ClusterIP
+    port: 8000
+
+mongodb:
+  image:
+    repository: mongo
+    tag: "8.0"
+    pullPolicy: IfNotPresent
+
+  service:
+    port: 27017
+
+  storage:
+    size: 1Gi
+  database: taskpad
