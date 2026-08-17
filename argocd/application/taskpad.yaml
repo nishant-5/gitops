@@ -3,7 +3,6 @@ kind: Application
 
 metadata:
   name: taskpad
-
   namespace: argocd
 
 spec:
@@ -11,10 +10,18 @@ spec:
   project: default
 
   source:
-    repoURL: https://github.com/nishant-5/gitops.git
-    targetRevision: main
-    path: charts/taskpad
+    - repoURL: https://github.com/nishant-5/gitops.git
+      targetRevision: main
+      path: charts/taskpad
+
+      helm:
+        valueFiles:
+          - $values/envs/dev/values.yaml
+
+    - repoURL: https://github.com/nishant-5/gitops.git
+      targetRevision: main
+      ref: values
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: taskpad-dev
