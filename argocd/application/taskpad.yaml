@@ -6,10 +6,10 @@ metadata:
   namespace: argocd
 
 spec:
-
   project: default
 
-  source:
+  sources:
+
     - repoURL: https://github.com/nishant-5/gitops.git
       targetRevision: main
       path: charts/taskpad
