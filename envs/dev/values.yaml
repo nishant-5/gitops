@@ -11,7 +11,7 @@ backend:
   replicaCount: 1
   image:
     repository: nishantch05/taskpad-backend
-    tag: 92895fc
+    tag: "2408684"
     pullPolicy: IfNotPresent
   service:
     type: ClusterIP
