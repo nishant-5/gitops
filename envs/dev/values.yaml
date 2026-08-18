@@ -2,7 +2,7 @@ frontend:
   replicaCount: 1
   image:
     repository: nishantch05/taskpad-frontend
-    tag: 92895fc
+    tag: 882ab70
   service:
     port: 80
   env:
