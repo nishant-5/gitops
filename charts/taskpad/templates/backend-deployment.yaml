@@ -24,8 +24,8 @@ spec:
 
           imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
           env:
-            - name: MONGO_URL
-              value: mongodb://{{ .Release.Name }}-mongodb:27017
+          - name: MONGO_URL
+            value: mongodb://{{ .Release.Name }}-mongodb:27017
 
           ports:
             - containerPort: 8000
